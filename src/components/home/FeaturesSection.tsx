@@ -1,7 +1,7 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Atom, Cube, Circle, Square } from "lucide-react";
+import { Atom, Box, Circle, Square } from "lucide-react";
 
 export const FeaturesSection = () => {
   return (
@@ -24,7 +24,7 @@ export const FeaturesSection = () => {
             description="New quantum physics puzzles every day to test your knowledge and intuition."
           />
           <FeatureCard 
-            icon={<Cube className="h-10 w-10 text-secondary" />}
+            icon={<Box className="h-10 w-10 text-secondary" />}
             title="3D Visualizations" 
             description="Interactive models that bring quantum concepts to life in three dimensions."
           />
