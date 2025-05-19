@@ -20,7 +20,7 @@ export const AtomModel = ({
 }: AtomModelProps) => {
   const groupRef = useRef<THREE.Group>(null);
 
-  useFrame((state) => {
+  useFrame(() => {
     if (!groupRef.current) return;
     // Gentle rotation of entire atom
     groupRef.current.rotation.y += 0.001;
@@ -28,7 +28,7 @@ export const AtomModel = ({
   });
 
   return (
-    <group ref={groupRef} position={position} scale={scale}>
+    <group ref={groupRef} position={position as any} scale={scale}>
       {/* Nucleus */}
       <QuantumParticle color={nucleusColor} size={0.8} />
       

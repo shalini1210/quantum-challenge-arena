@@ -37,7 +37,7 @@ export const QuantumParticle = ({
   });
 
   return (
-    <Sphere ref={ref} args={[size, 32, 32]} position={position}>
+    <Sphere ref={ref} args={[size, 32, 32]} position={position as any}>
       <meshStandardMaterial 
         color={color} 
         emissive={color} 

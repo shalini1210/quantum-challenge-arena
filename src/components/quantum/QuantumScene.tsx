@@ -19,7 +19,7 @@ export const QuantumScene = ({ className }: QuantumSceneProps) => {
           
           <AtomModel position={[0, 0, 0]} scale={1} />
           
-          <Stars radius={100} depth={50} count={1000} factor={4} fade speed={1} />
+          <Stars radius={100} depth={50} count={1000} factor={4} fade={true} speed={1} />
           <OrbitControls 
             enableZoom={true} 
             enablePan={false} 

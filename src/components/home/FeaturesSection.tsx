@@ -1,63 +1,69 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Calendar, Users, Trophy, Star, Atom, Molecule } from "lucide-react";
-
-const features = [
-  {
-    icon: Calendar,
-    title: "Daily Challenges",
-    description: "Solve a new quantum physics puzzle every day to sharpen your knowledge."
-  },
-  {
-    icon: Users,
-    title: "Challenge Rooms",
-    description: "Create or join private rooms to compete with friends and colleagues."
-  },
-  {
-    icon: Trophy,
-    title: "Leaderboards",
-    description: "Climb the rankings and showcase your expertise in quantum physics."
-  },
-  {
-    icon: Atom,
-    title: "3D Visualizations",
-    description: "Explore interactive 3D models of quantum phenomena and concepts."
-  },
-  {
-    icon: Star,
-    title: "Achievement System",
-    description: "Earn badges and certificates as you master various physics topics."
-  },
-  {
-    icon: Molecule,
-    title: "Learning Resources",
-    description: "Access curated materials to deepen your understanding of quantum mechanics."
-  }
-];
+import { Button } from "@/components/ui/button";
+import { Atom, Cube, Circle, Square } from "lucide-react";
 
 export const FeaturesSection = () => {
   return (
-    <section className="py-20 bg-muted/30" id="features">
+    <section className="py-16 bg-muted/30">
       <div className="container">
-        <div className="text-center max-w-2xl mx-auto mb-12">
-          <h2 className="text-3xl font-bold tracking-tight mb-4">Platform Features</h2>
-          <p className="text-muted-foreground">
-            Everything you need to explore, understand, and master quantum physics concepts
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold tracking-tight">
+            Discover Quantum Challenges
+          </h2>
+          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto">
+            Interactive puzzles and visualizations that make quantum physics accessible
+            and engaging for physics enthusiasts of all levels.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {features.map((feature, index) => (
-            <Card key={index} className="border-primary/10 bg-card/80 backdrop-blur-sm hover:border-primary/30 transition-all">
-              <CardHeader>
-                <feature.icon className="h-8 w-8 text-primary mb-2" />
-                <CardTitle>{feature.title}</CardTitle>
-                <CardDescription>{feature.description}</CardDescription>
-              </CardHeader>
-            </Card>
-          ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <FeatureCard 
+            icon={<Atom className="h-10 w-10 text-primary" />}
+            title="Daily Challenges" 
+            description="New quantum physics puzzles every day to test your knowledge and intuition."
+          />
+          <FeatureCard 
+            icon={<Cube className="h-10 w-10 text-secondary" />}
+            title="3D Visualizations" 
+            description="Interactive models that bring quantum concepts to life in three dimensions."
+          />
+          <FeatureCard 
+            icon={<Circle className="h-10 w-10 text-quantum-pink" />}
+            title="Challenge Rooms" 
+            description="Create private rooms to challenge friends and colleagues to quantum duels."
+          />
+          <FeatureCard 
+            icon={<Square className="h-10 w-10 text-quantum-blue" />}
+            title="Leaderboards" 
+            description="Compare your quantum problem-solving skills with physics enthusiasts worldwide."
+          />
+        </div>
+        
+        <div className="text-center mt-12">
+          <Button size="lg">Explore All Features</Button>
         </div>
       </div>
     </section>
+  );
+};
+
+interface FeatureCardProps {
+  icon: React.ReactNode;
+  title: string;
+  description: string;
+}
+
+const FeatureCard = ({ icon, title, description }: FeatureCardProps) => {
+  return (
+    <Card className="hover:shadow-lg transition-shadow border-primary/10">
+      <CardHeader className="space-y-1 pb-2">
+        <div className="mb-2">{icon}</div>
+        <CardTitle className="text-xl">{title}</CardTitle>
+      </CardHeader>
+      <CardContent>
+        <CardDescription className="text-base">{description}</CardDescription>
+      </CardContent>
+    </Card>
   );
 };
